@@ -1,0 +1,187 @@
+% !TeX TS-program = xelatex
+
+\documentclass{beamer}
+%Set the slide theme
+%Change to meet your taste
+% Madrid, Copenhagen, Berlin, ... works
+\usetheme{Madrid} 
+%\usetheme{metropolis}
+
+
+\usepackage{xecolor}
+\usepackage{amsmath}
+%\usefonttheme[onlymath]{serif} %Change the math font
+
+\usepackage{xepersian}
+\settextfont{XB Roya}
+
+%---------------------------------------------------------------------------------
+% Seetings to force Beamer works with Xepersian and RTL typesetting
+%-------------------------------------------------------------------------------
+%\raggedleft
+
+% For right to left lists (itemize and enumerate)
+\makeatletter
+\newcommand{ \RTList}{\raggedleft\rightskip\@totalleftmargin} 
+\makeatother
+% Correct the bullet for RTL texts
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt%
+ \hbox{\donotcoloroutermaths$\blacktriangleleft$}} 
+
+% To force beamer use numbering in captions
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+
+
+
+%---------------------------------------------------------------------------------
+\title{
+استفاده از Beamer برای تهیه اسلاید پارسی
+}
+\subtitle{ساخت اسلاید با زی‌پرشین و بیمر به روش ساده‌}
+\author{محمد رحمانی}
+\institute{دانشگاه صنعتی امیرکبیر}
+\date{تابستان ۱۳۹۶}
+
+
+\begin{document}
+\begin{persian}
+%------------------------------------------
+% Title page
+%------------------------------------------
+\begin{frame}
+\maketitle
+\end{frame}
+
+% To adjust the paragraphs in RTL
+\everypar{\rightskip\rightmargin}
+%-------------------------------------------------------------------------------
+\begin{frame}{سرآغاز}
+\section{مبانی}
+\subsection{متن ساده}
+این یک نمونه بسیار ساده از اسلاید است که با بیمر و زی‌پرشین ساخته شده‌است.
+
+از فونت آزاد Roya XB برای این اسلاید استفاده شده‌است. این فونت در اینترنت موجود است و باید روی کامپیوتر شما نصب شده باشد یا در فولدر قابل دسترس برای زی‌لاتک باشد
+
+تنظیمات اندکی در بخش آغازین برای اصلاح لیست‌ها و عنوان اسلایدها اضافه شده است. همچنین نحوه شماره‌گذاری تصاویر و جدول‌ها تنظیم شده‌است.
+
+بسیاری از تم‌های استاندارد بیمر با این الگو قابل استفاده است.
+
+استفاده از پانویس توصیه نمی شود. سفارش می‌شود که جدول فهرست مطالب به شکل دستی باشد. این اسلاید با بسیاری از تم‌های بیمر کار میکند اگرچه ممکن است اشکالاتی وجود داشته باشد.
+\end{frame}
+
+%-------------------------------------------------------------------------------
+\section{لیست‌های بدون شماره و با شماره}
+%-------------------------------------------------------------------------------
+\begin{frame}{استفاده از لیست‌های بدون شماره}
+
+استفاده از محیط لیست‌های بدون شماره در این‌جا آورده شده است. به نحوه راست چین نمودن لیست در فایل tex دقت نمایید.
+\begin{itemize}\RTList
+	\item مورد اول
+	\item مورد دوم
+	\item مورد سوم که یک متن طولانی تر است\\ ما چند خط در اینجا آورده‌ایم
+	\item مورد آخر
+\end{itemize}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+\begin{frame}{استفاده از محیط شماره‌گذاری}
+ استفاده از محیط لیست (itemize) و شماره‌گذاری (enumerate) بصورت ترکیبی در این‌جا آورده شده است
+ \begin{enumerate}\RTList
+      \item سطح یک - مورد اول
+	      \begin{itemize}\RTList
+	      		\item  سطح دوم - مورد اول
+	     		 \item  سطح دوم - مورد دوم
+	      \end{itemize}
+      \item سطح یک - مورد دو
+      \item سطح یک - مورد سه
+ \end{enumerate}
+
+این یک پاراگراف ساده پارسی بعد از محیط شماره‌گذاری است.
+\end{frame}
+
+
+%-------------------------------------------------------------------------------
+\begin{frame}{استفاده از رنگ و متن انگلیسی در اسلاید پارسی}
+در این اسلاید نحوه استفاده از رنگ از بسته xecolor و نیز محیط LTR برای نوشتن متن پارسی آمده‌است.
+\vspace{1cm}
+
+{\xecolor{green}
+	استفاده از \textbf{رنگ} و متن انگلیسی در داخل اسلاید پارسی
+}
+\vspace{1cm}
+{\xecolor{red}
+	\begin{LTR}
+		This is an English Paragraph inside a Persian slide!\\
+		Another line of latin text.
+	\end{LTR}
+}
+
+\end{frame}
+
+
+%-------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{معادلات ریاضی}
+چنانکه ملاحظه می‌شود عنوان در بیمر + زی‌پرشین به درستی کار می‌کند
+\vspace{2cm}
+\begin{equation}
+\int_{a}^{b} f(x)dx = \frac{\lambda x^2 + \gamma x + \beta}{1+\sum_{n=1}^{m+2} 3 \alpha x^2 +x_n \sin(2 x_n -1)}
+\end{equation}
+
+\end{frame}
+
+%------------------------------------------
+% Tables and Pictures
+%------------------------------------------
+\section{کار با تصویر و جدول}
+
+%------------------------------------------
+\begin{frame}
+\frametitle{شکل‌ها}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\linewidth]{settings-blue.pdf}
+	\caption[نمونه تصویر]{چگونگی درج یک تصور در بیمر+زی‌پرشین}
+	\label{fig:pic1}
+\end{figure}
+\end{frame}
+
+
+%-------------------------------------------------------------------------------
+\begin{frame}{جداول در بیمر و زی‌پرشین}
+\begin{table}
+\caption{نمونه متن در جدول فارسی}
+\begin{tabular}{|c|c|c|c|}
+	\hline 
+خانه اول	& خانه وسط جدول &خانه سمت راست    \\ 
+	\hline 
+ردیف دوم	&  ردیف دوم خانه دوم& ردیف دوم خانه سوم   \\ 
+	\hline 
+ردیف سوم	&
+$ y=\int_{a}^{b\gamma+\epsilon} f(x) dx $
+& ردیف سوم آخر   \\ 
+	\hline 
+\end{tabular} 
+\end{table}
+\end{frame}
+
+%-------------------------------------------------------------------------------
+\begin{frame}{اسلاید پایانی}
+در نسخه بعدی این اسلاید موارد زیر  آمده‌است: استفاده از فونت‌های فارسی آزاد که مناسب اسلاید هستند، متن‌های چند ستونی، لیست‌های رنگی و ...
+
+کد منبع این اسلاید در آدرس زیر موجود است
+\begin{itemize}\RTList
+	\item \href{https://github.com/kookma/Persian-Beamer-Templates}{Github/kookma}
+\end{itemize}
+
+\begin{alertblock}{نکته مهم}
+	این اسلاید با انجام برخی تنظیمات تهیه شده است زیرا بسته زی‌پرشین هنوز بطور کامل با بیمر سازگار نیست. در سایت 
+	\href{http://qa.parsilatex.com}{پرسش و پاسخ پارسی لاتک}
+ روش‌های سیستماتیک و مناسب‌تری توسط توسعه دهنده زی‌پرشین ارایه شده‌است.
+\end{alertblock}
+
+
+\end{frame}
+
+\end{persian}
+\end{document}
